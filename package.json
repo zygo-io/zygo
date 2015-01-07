@@ -19,5 +19,8 @@
   "dependencies": {
     "node-commandline": "^0.2.0",
     "url-pattern": "^0.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
   }
 }
