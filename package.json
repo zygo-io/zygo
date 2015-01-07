@@ -1,0 +1,9 @@
+{
+  "jspm": {
+    "name": "Zygo",
+    "dependencies": {
+      "rsvp": "npm:rsvp@^3.0.16",
+      "url-pattern": "npm:url-pattern@^0.6.0"
+    }
+  }
+}
