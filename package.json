@@ -1,9 +1,23 @@
 {
-  "jspm": {
-    "name": "Zygo",
-    "dependencies": {
-      "rsvp": "npm:rsvp@^3.0.16",
-      "url-pattern": "npm:url-pattern@^0.6.0"
-    }
+  "name": "zygo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bubblyworld/Zygo.git"
+  },
+  "author": "Guy Paterson-Jones",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bubblyworld/Zygo/issues"
+  },
+  "homepage": "https://github.com/Bubblyworld/Zygo",
+  "dependencies": {
+    "node-commandline": "^0.2.0",
+    "url-pattern": "^0.6.0"
   }
 }
