@@ -1,7 +1,7 @@
 {
   "name": "zygo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple dual client/'server framework for Jspm and React.'",
   "main": "app/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Bubblyworld/Zygo",
   "dependencies": {
+    "jspm": "^0.10.3",
     "node-commandline": "^0.2.0",
     "url-pattern": "^0.6.0"
   },
