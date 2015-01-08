@@ -1,2 +1,4 @@
-node_modules
+jspm_packages
+test/jspm_packages
 zygo-api.txt
+.jshintrc

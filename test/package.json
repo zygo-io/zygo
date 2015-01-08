@@ -1,0 +1,13 @@
+{
+  "jspm": {
+    "directories": {
+      "lib": "app"
+    },
+    "dependencies": {
+      "css": "^0.1.0",
+      "jsx": "^0.1.1",
+      "react": "npm:react@^0.12.2",
+      "url-pattern": "npm:url-pattern@^0.6.0"
+    }
+  }
+}
