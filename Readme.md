@@ -1,6 +1,6 @@
 # Zygo
 
-Zygo is the beginnings of a slim dual client/server rendering framework built around JSPM and React.  It is not in a usable state at the moment.
+Zygo is the beginnings of a slim dual client/server rendering framework built around [JSPM](github.com/jspm/jspm-cli) and [React](github.com/facebook/react).  It is not in a usable state at the moment.
 
 ---
 
