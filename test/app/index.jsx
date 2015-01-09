@@ -10,7 +10,7 @@ import TabPane from 'bootstrap/TabPane';
 export default React.createClass({
   render: function() {
     return (
-      <TabbedArea activeKey={this.props.indexTabKey} onSelect={this.handleSelect}>
+      <TabbedArea animation={false} activeKey={this.props.indexTabKey} onSelect={this.handleSelect}>
         <TabPane eventKey={1} tab="First Tab">
           {this.props.firstTabContent}
         </TabPane>
