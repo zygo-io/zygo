@@ -12,6 +12,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.0",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.12.2",
+    "react-bootstrap": "github:react-bootstrap/react-bootstrap@0.13.0",
     "url-pattern": "npm:url-pattern@0.6.0",
     "github:floatdrop/plugin-jsx@0.1.1": {
       "react-tools": "npm:react-tools@0.12.2"
@@ -336,7 +337,7 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.0",
       "private": "npm:private@0.1.6",
       "process": "github:jspm/nodelibs-process@0.1.0",
-      "source-map": "npm:source-map@0.1.42"
+      "source-map": "npm:source-map@0.1.43"
     },
     "npm:ripemd160@0.2.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -358,7 +359,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.0"
     },
-    "npm:source-map@0.1.42": {
+    "npm:source-map@0.1.43": {
       "amdefine": "npm:amdefine@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",

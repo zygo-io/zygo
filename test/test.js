@@ -6,9 +6,9 @@ zygo._setInitialState({
 });
 
 zygo._setRoutes({
-  '/': 'app/index_handler',
-  '/message': ['app/message_handler']
+  '/first': 'app/first_handler',
+  '/second': ['app/second_handler'],
+  '/messages': 'app/messages_handler'
 });
 
-//zygo.renderComponent('app/index.jsx!', 'my title');
-zygo.route('/message');
+zygo.route('/first');
