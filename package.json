@@ -4,6 +4,9 @@
   "main": "lib/zygo-client.js",
   "author": "Guy Paterson-Jones",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha-phantomjs ./test/index.html"
+  },
   "bugs": {
     "url": "https://github.com/Bubblyworld/Zygo/issues"
   },
