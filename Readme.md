@@ -2,6 +2,8 @@
 
 Zygo is the beginnings of a slim dual client/server rendering framework built around [JSPM](github.com/jspm/jspm-cli) and [React](github.com/facebook/react).  It is not in a usable state at the moment.
 
+For an in-progress example app, see [zygo-example](https://www.github.com/Bubblyworld/zygo-example).
+
 ---
 
 ### Client API
@@ -51,8 +53,8 @@ export default function(state) {
     ... handler code ...
 
     return {
-      component: '',
-      title: ''
+      component: 'app/my-component.jsx!',
+      title: 'My Title!'
     };
   });
 }
