@@ -51,17 +51,11 @@ export default function(assert) {
         });
 
         it("should set the title correctly", function() {
-          let titleTags = document.getElementsByTagName("title");
-
-          assert(titleTags.length == 1);
-          assert.equal(titleTags[0].innerHTML, 'On the first tab!');
+          _assertTitleEquals('On the first tab!');
         });
 
         it("should set the body html correctly", function() {
-          let tabTags = document.getElementsByClassName("tab-pane active");
-
-          assert(tabTags.length == 1);
-          assert.equal(tabTags[0].innerHTML, 'Setting the first tab content.');
+          _assertContentEquals('Setting the first tab content.');
         });
 
         it("should set state in the handlers correctly", function() {
@@ -80,6 +74,8 @@ export default function(assert) {
           assert.equal(zygo.state.route.path, '/second');
           assert.equal(zygo.state.indexTabKey, 2);
           assert.equal(zygo.state.secondTabContent, 'Second tab content.');
+          _assertContentEquals('Second tab content.');
+          _assertTitleEquals('On the second tab!');
         });
       });
     });
@@ -130,10 +126,7 @@ export default function(assert) {
       });
 
       it("should not have rendered the route", function() {
-        let tabTags = document.getElementsByClassName("tab-pane active");
-
-        assert(tabTags.length == 1);
-        assert.equal(tabTags[0].innerHTML, 'Setting the first tab content.');
+        _assertContentEquals('Setting the first tab content.');
       });
     });
 
@@ -145,17 +138,11 @@ export default function(assert) {
       });
 
       it("should have rendered the current route", function() {
-        let tabTags = document.getElementsByClassName("tab-pane active");
-
-        assert(tabTags.length == 1);
-        assert.equal(tabTags[0].innerHTML, 'Second tab content.');
+        _assertContentEquals('Second tab content.');
       });
 
       it("should set the title correctly", function() {
-        let titleTags = document.getElementsByTagName("title");
-
-        assert(titleTags.length == 1);
-        assert.equal(titleTags[0].innerHTML, 'On the second tab!');
+        _assertTitleEquals('On the second tab!');
       });
     });
 
@@ -171,32 +158,26 @@ export default function(assert) {
       });
 
       it("should have rendered the current route", function() {
-        let tabTags = document.getElementsByClassName("tab-pane active");
-
-        assert(tabTags.length == 1);
-        assert.equal(tabTags[0].innerHTML, 'fake content');
+        _assertContentEquals('fake content');
       });
 
       it("should set the title correctly", function() {
-        let titleTags = document.getElementsByTagName("title");
-
-        assert(titleTags.length == 1);
-        assert.equal(titleTags[0].innerHTML, 'fake title');
+        _assertTitleEquals('fake title');
       });
     });
   });
-}
 
-function assertTitleEquals(title) {
-  let titleTags = document.getElementsByTagName("title");
+  function _assertTitleEquals(title) {
+    let titleTags = document.getElementsByTagName("title");
 
-  assert(titleTags.length == 1);
-  assert.equal(titleTags[0].innerHTML, title);
-}
+    assert(titleTags.length == 1);
+    assert.equal(titleTags[0].innerHTML, title);
+  }
 
-function assertContentEquals(content) {
-  let tabTags = document.getElementsByClassName("tab-pane active");
+  function _assertContentEquals(content) {
+    let tabTags = document.getElementsByClassName("tab-pane active");
 
-  assert(tabTags.length == 1);
-  assert.equal(tabTags[0].innerHTML, content);
+    assert(tabTags.length == 1);
+    assert.equal(tabTags[0].innerHTML, content);
+  }
 }
