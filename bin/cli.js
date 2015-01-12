@@ -16,7 +16,7 @@ function main(args, options) {
     _normalMessage(error);
     return;
   }
-  _errorMessage("blah %d", 4);
+
   _okMessage("Initialised Zygo.");
 
   //Cd to their config directory, intialise Jspm
