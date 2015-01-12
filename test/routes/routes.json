@@ -1,0 +1,5 @@
+{
+  "/first": "app/first_handler",
+  "/second": ["app/second_handler"],
+  "/messages": "app/messages_handler"
+}

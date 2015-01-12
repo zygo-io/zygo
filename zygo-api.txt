@@ -1,0 +1,190 @@
+The server needs access to the both serialisation functions, so we need to add that into config
+I think... Think more about this.
+
+We have to enforce  that users write their app components with default es6 export.
+That or we need to do a bit of work to get each of them working.
+
+I've decided to pass the loading route into the handler functions rather than through
+state, as otherwise subtle errors are introduced when routes are changed
+mid transition.
+
+CLIENT API
+---------------
+
+STATE
+{
+  stores: {
+    people:
+    tweets: new Class()
+  },
+  route: {
+    title: 'Timeline',
+    path: '/timeline',
+    options: {},
+    method: 'GET', 'POST' ( client is always GET )
+    headers: {}
+    handlers: []/''
+    pageComponent = module ID
+  }
+}
+
+zygo.route('/some/path')
+zygo.refresh()
+zygo.state
+zygo.state.route
+zygo.pushState(path, [headers]) -> change state.route as if a given request occurred
+
+zygo.routes -> passed through by attachment api, combines all relevant client
+                      -> side routes (i.e. in server routes.json + clientRoutes.json)
+
+zygo.on('deserialize')
+
+
+SERVER API
+-----------------
+
+page template (HTML wrapper)
+
+zygo.on('serialize')
+
+zygo.config, contains the following information:
+//zygo.routes = ['routes.json'];
+//zygo.clientRoutes = true; // routes.json
+//zygo.clientRoutes = ['client-routes.json'] // client routes as a subset
+
+Route has a default serialization:
+EXPECTS method: 'GET' by default, unless set to something else
+
+Request headers become route options
+
+only serializes into { route: { path: '/some/path' } }
+
+
+page-login-route.js
+
+zygo.on('serialize', function(state) {
+  delete state.login;
+});
+
+zygo.json
+{
+  "routes": "public/routes.json", // default is routes.json, shared
+  "serverRoutes": "serverRoutes.json", // default is none
+  "clientRoutes": "clientRoutes.json", // default is none
+  "template": "template.hbs", // optional, with default included in zygo itself
+  "port": "80", // optional default
+
+    ... will be others
+}
+
+package.json
+{
+  "directories": {
+    "baseURL" = public folder (call public?)
+  }
+}
+
+routes.json
+
+zygo
+
+//We are going to hve to host the json files separately.
+ATTACHMENT API
+-------------------------
+
+<!-- trigger loads upfront -->
+<title><!-- {title} --></title>
+
+<!-- {attachment header} -->
+<link rel="stylesheet" href="...from trace of page-component...">
+<script>
+  System.import('routes.json');
+  System.import('client-route-handler-for-this-page');
+  System.import('page-component');
+</script>
+
+
+<body>
+<!--{component}-->
+</body>
+
+
+<!-- {attachment footer} -->
+<script>
+System.import('zygo').then(function(zygo) {
+  zygo._router(['routes.json']); // possible not to use a router!
+  zygo._attach('page-component', {
+    ...serialized JSON...
+  });
+});
+</script>
+
+server attachment API
+zygo.renderComponent('component', state).then(function(renderObj) {
+   renderObj.styles;
+   renderObj.preloadHTML //etc
+   renderObj.componentHTML
+   renderObj.attachmentHTML
+  ))
+
+zygo.render('component', state).then(function(pageHTML) {
+    res.write(pageHTML);
+})
+
+
+
+ROUTES API
+----------
+
+history.pushState(path, title, options);
+window.onpopstate for back-button integration
+
+support oldIE, by allowing history.pushState not to exist
+
+routes-server.json
+{
+  '/messages/[:id]/': 'handler-id',
+  '/': ['handler-auth', 'handler-index']
+}
+routes-client.json
+{
+  '/messages/[:id]/': 'handler-id',
+  '/': ['handler-index'],
+  'default': 'adfadf'
+}
+
+handler (state,loadingRoute) -> Promise for { title, component: 'module/id' }
+OR { redirect: '/new/path' } / { redirect: '/404' }
+
+
+ROUTE TRANSITIONS
+-----------------
+
+routes: {
+  '/timeline/[:name]':
+}
+
+STATE
+route: {
+  title: 'PAGE TITLE'
+  path: '/timeline/here',
+  args: {
+    name: 'here'
+  },
+  options: {..}
+}
+loadingRoute: {
+  path: '/meh',
+}
+
+
+Navigation Action
+0. push to browser history
+1. add loadingRoute, parsed through routes object with validation etc
+2. run client handler(s)
+3. on redirect, follow redirect handler
+4. on component response change `loadingRoute` to `route`
+
+zygo.abortRoute();
+
+zygo.route('name' [, {options}])
