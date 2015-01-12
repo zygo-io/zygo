@@ -9,6 +9,7 @@ System.config({
 
 System.config({
   "map": {
+    "chai": "npm:chai@1.10.0",
     "css": "github:systemjs/plugin-css@0.1.0",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "mocha": "npm:mocha@1.21.5",
@@ -126,6 +127,13 @@ System.config({
       "ieee754": "npm:ieee754@1.1.4",
       "is-array": "npm:is-array@1.0.1"
     },
+    "npm:chai@1.10.0": {
+      "assertion-error": "npm:assertion-error@1.0.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "deep-eql": "npm:deep-eql@0.1.3",
+      "process": "github:jspm/nodelibs-process@0.1.0",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
     "npm:commander@0.6.1": {
       "events": "github:jspm/nodelibs-events@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -195,6 +203,10 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.0",
       "tty": "github:jspm/nodelibs-tty@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:deep-eql@0.1.3": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "type-detect": "npm:type-detect@0.1.1"
     },
     "npm:diffie-hellman@2.2.2": {
       "bn.js": "npm:bn.js@0.16.1",
