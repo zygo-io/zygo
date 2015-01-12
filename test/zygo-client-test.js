@@ -186,3 +186,17 @@ export default function(assert) {
     });
   });
 }
+
+function assertTitleEquals(title) {
+  let titleTags = document.getElementsByTagName("title");
+
+  assert(titleTags.length == 1);
+  assert.equal(titleTags[0].innerHTML, title);
+}
+
+function assertContentEquals(content) {
+  let tabTags = document.getElementsByClassName("tab-pane active");
+
+  assert(tabTags.length == 1);
+  assert.equal(tabTags[0].innerHTML, content);
+}
