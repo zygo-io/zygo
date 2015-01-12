@@ -9,6 +9,6 @@ export default function(state) {
         component: 'app/index.jsx!',
         title: 'On the messages tab!'
       });
-    }, state.messages ? 0 : 1000);
+    }, 500);
   });
 }
