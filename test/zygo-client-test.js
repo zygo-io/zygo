@@ -12,7 +12,7 @@ export default function(assert) {
     '/messages': 'app/messages_handler'
   };
 
-  describe("Initial State/Routes", function() {
+  describe("zygo._setInitialState(), zygo._setRoutes()", function() {
     it("should initialise state correctly", function() {
       zygo._setInitialState(initialState);
       assert.equal(zygo.state, initialState);
@@ -54,12 +54,117 @@ export default function(assert) {
         assert.equal(titleTags[0].innerHTML, 'On the first tab!');
       });
 
-      it("should set the body html right", function() {
+      it("should set the body html correctly", function() {
         let tabTags = document.getElementsByClassName("tab-pane active");
 
         assert(tabTags.length == 1);
         assert.equal(tabTags[0].innerHTML, 'Setting the first tab content.');
       });
+
+      it("should set state in the handlers correctly", function() {
+        assert.equal(zygo.state.indexTabKey, 1);
+        assert.equal(zygo.state.firstTabContent, 'Setting the first tab content.');
+      });
+    });
+  });
+
+  describe("zygo.on(), zygo._emit()", function() {
+    let x = false, y = false;
+
+    before(function() {
+      zygo.on('test_callback', (data) => {
+        x = data;
+      });
+
+      zygo.on('fake_test_callback', () => {
+        y = true;
+      });
+
+      zygo._emit('test_callback', true);
+    });
+
+    it("should run callback when event is emitted", function() {
+      assert(x);
+    });
+
+    it("should not run callback when different event is emitted", function() {
+      assert(!y);
+    });
+  });
+
+  describe("zygo.pushState()", function() {
+    let route;
+
+    before(function(done) {
+      zygo.route('/first').then(function() {
+        zygo.pushState('/messages', { fakeOption: true }).then(done);
+      });
+    });
+
+    it("should set state with message data", function() {
+      assert.deepEqual(zygo.state.messages,  ['msg1', 'msg2', 'msg3']);
+    });
+
+    it("should resolve to the correct component", function() {
+      assert.equal(zygo.state.route.component, "app/index.jsx!");
+    });
+
+    it("should set route headers correctly", function() {
+      assert.deepEqual(zygo.state.route.headers, { fakeOption: true });
+    });
+
+    it("should not have rendered the route", function() {
+      let tabTags = document.getElementsByClassName("tab-pane active");
+
+      assert(tabTags.length == 1);
+      assert.equal(tabTags[0].innerHTML, 'Setting the first tab content.');
+    });
+  });
+
+  describe("zygo.refresh()", function() {
+    before(function(done) {
+      zygo.pushState('/second').then(function() {
+        zygo.refresh().then(done);
+      });
+    });
+
+    it("should have rendered the current route", function() {
+      let tabTags = document.getElementsByClassName("tab-pane active");
+
+      assert(tabTags.length == 1);
+      assert.equal(tabTags[0].innerHTML, 'Second tab content.');
+    });
+
+    it("should set the title correctly", function() {
+      let titleTags = document.getElementsByTagName("title");
+
+      assert(titleTags.length == 1);
+      assert.equal(titleTags[0].innerHTML, 'On the second tab!');
+    });
+  });
+
+  describe("zygo.renderComponent()", function() {
+    before(function(done) {
+      zygo.state.indexTabKey = 1;
+      zygo.renderComponent("app/index.jsx!").then(function() {
+        zygo.state.indexTabKey = 2;
+
+        return zygo.renderComponent("app/index.jsx!", "fake title");
+      }).then(done);
+    });
+
+    it("should have rendered the current route", function() {
+      let tabTags = document.getElementsByClassName("tab-pane active");
+
+      assert(tabTags.length == 1);
+      assert.equal(tabTags[0].innerHTML, 'Second tab content.');
+    });
+
+    it("should set the title correctly", function() {
+      let titleTags = document.getElementsByTagName("title");
+
+      assert(titleTags.length == 1);
+      assert.equal(titleTags[0].innerHTML, 'fake title');
     });
   });
 }
