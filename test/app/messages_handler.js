@@ -6,7 +6,7 @@ export default function(state) {
       state.messages = ['msg1', 'msg2', 'msg3'];
 
       resolve({
-        component: 'app/index.jsx!',
+        component: 'test/app/index.jsx!',
         title: 'On the messages tab!'
       });
     }, 500);

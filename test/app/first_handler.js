@@ -4,7 +4,7 @@ export default function(state) {
     state.firstTabContent = "Setting the first tab content.";
 
     return {
-      component: 'app/index.jsx!',
+      component: 'test/app/index.jsx!',
       title: 'On the first tab!'
     };
   });

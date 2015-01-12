@@ -1,11 +1,11 @@
 import './index.css!';
 
 import React from 'react';
-import * as zygo from 'zygo/lib/zygo-client';
+import * as zygo from '../zygo/lib/zygo-client';
 
 import MessagesTab from './messages_tab.jsx!';
-import TabbedArea from 'bootstrap/TabbedArea';
-import TabPane from 'bootstrap/TabPane';
+import TabbedArea from '../bootstrap/TabbedArea';
+import TabPane from '../bootstrap/TabPane';
 
 export default React.createClass({
   render: function() {

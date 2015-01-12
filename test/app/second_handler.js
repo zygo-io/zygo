@@ -4,7 +4,7 @@ export default function(state) {
     state.secondTabContent = "Second tab content.";
 
     return {
-      component: 'app/index.jsx!',
+      component: 'test/app/index.jsx!',
       title: 'On the second tab!'
     };
   });

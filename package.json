@@ -9,7 +9,12 @@
   },
   "homepage": "https://github.com/Bubblyworld/Zygo",
   "dependencies": {
+    "chai": "npm:chai@^1.10.0",
+    "css": "^0.1.0",
+    "jsx": "^0.1.1",
+    "mocha": "1.21.5",
     "react": "npm:react@^0.12.2",
+    "react-bootstrap": "github:react-bootstrap/react-bootstrap@^0.13.0",
     "url-pattern": "npm:url-pattern@^0.6.0"
   }
 }

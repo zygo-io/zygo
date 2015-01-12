@@ -1,4 +1,4 @@
-import * as zygo from './zygo/lib/zygo-client';
+import * as zygo from '../zygo/lib/zygo-client';
 
 export default function(assert) {
   describe("zygo-client.js tests", function() {
@@ -15,9 +15,9 @@ export default function(assert) {
     };
 
     let routes = {
-      '/first': 'app/first_handler',
-      '/second': ['app/second_handler'],
-      '/messages': 'app/messages_handler'
+      '/first': 'test/app/first_handler',
+      '/second': ['test/app/second_handler'],
+      '/messages': 'test/app/messages_handler'
     };
 
     describe("zygo._setInitialState(), zygo._setRoutes()", function() {
@@ -118,7 +118,7 @@ export default function(assert) {
       });
 
       it("should resolve to the correct component", function() {
-        assert.equal(zygo.state.route.component, "app/index.jsx!");
+        assert.equal(zygo.state.route.component, "test/app/index.jsx!");
       });
 
       it("should set route headers correctly", function() {
@@ -149,11 +149,11 @@ export default function(assert) {
     describe("zygo.renderComponent()", function() {
       before(function(done) {
         zygo.state.indexTabKey = 1;
-        zygo.renderComponent("app/index.jsx!").then(function() {
+        zygo.renderComponent("test/app/index.jsx!").then(function() {
           zygo.state.indexTabKey = 2;
           zygo.state.secondTabContent = 'fake content';
 
-          return zygo.renderComponent("app/index.jsx!", "fake title");
+          return zygo.renderComponent("test/app/index.jsx!", "fake title");
         }).then(done);
       });
 
