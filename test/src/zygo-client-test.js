@@ -7,6 +7,7 @@ export default function(assert) {
     before(function() {
       zygo._setInitialState(initialState);
       zygo._setRoutes(routes);
+      zygo._addLinkHandlers();
     });
 
     let initialState = {
@@ -17,7 +18,8 @@ export default function(assert) {
     let routes = {
       '/first': 'test/app/first_handler',
       '/second': ['test/app/second_handler'],
-      '/messages': 'test/app/messages_handler'
+      '/messages': 'test/app/messages_handler',
+      '/links': 'test/app/links_handler'
     };
 
     describe("zygo._setInitialState(), zygo._setRoutes()", function() {
@@ -77,6 +79,26 @@ export default function(assert) {
           _assertContentEquals('Second tab content.');
           _assertTitleEquals('On the second tab!');
         });
+      });
+
+      describe("<a> tags with route hrefs handled by router", function() {
+        beforeEach(function(done) {
+          zygo.route('/links').then(done);
+        });
+
+        it("should work if valid route link clicked", function() {
+          document.getElementById('gotoOne').click();
+          assert.equal(zygo.currentPath, '/first');
+        });
+
+        //TODO when 404 handlers added
+        // it("should fail if bad route link clicked", function() {
+        //   assert.throws(function() {
+        //     try {
+        //     document.getElementById('gotoFail').click();
+        //   } catch(er) { console.log(er);}
+        //   }, Error);
+        // });
       });
     });
 
