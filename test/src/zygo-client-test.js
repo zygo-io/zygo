@@ -19,7 +19,8 @@ export default function(assert) {
       '/first': 'test/app/first_handler',
       '/second': ['test/app/second_handler'],
       '/messages': 'test/app/messages_handler',
-      '/links': 'test/app/links_handler'
+      '/links': 'test/app/links_handler',
+      'default': 'test/app/second_handler'
     };
 
     describe("zygo._setInitialState(), zygo._setRoutes()", function() {
@@ -35,12 +36,6 @@ export default function(assert) {
     });
 
     describe("zygo.route()", function() {
-      it("should throw an error on incorrect route", function() {
-          assert.throws(function() {
-            zygo.route("/does/not/exist");
-          }, Error);
-      });
-
       it("should not throw an error on correct route", function(done) {
           assert.doesNotThrow(function() {
             zygo.route("/first").then(done);
@@ -90,15 +85,6 @@ export default function(assert) {
           document.getElementById('gotoOne').click();
           assert.equal(zygo.currentPath, '/first');
         });
-
-        //TODO when 404 handlers added
-        // it("should fail if bad route link clicked", function() {
-        //   assert.throws(function() {
-        //     try {
-        //     document.getElementById('gotoFail').click();
-        //   } catch(er) { console.log(er);}
-        //   }, Error);
-        // });
       });
     });
 
