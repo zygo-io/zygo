@@ -1,6 +1,6 @@
 # Zygo-Client
 
-Zygo is the beginnings of a slim dual client/server rendering framework built around [JSPM](github.com/jspm/jspm-cli) and [React](github.com/facebook/react). This repo contains the client side routing and rendering code, and can be used independently of [Zygo-Server](github.com/Bubblyworld/zygo-server).
+Zygo is the beginnings of a slim dual client/server rendering framework built around [JSPM](https://www.github.com/jspm/jspm-cli) and [React](https://www.github.com/facebook/react). This repo contains the client side routing and rendering code, and can be used independently of [Zygo-Server](https://www.github.com/Bubblyworld/zygo-server).
 
 ## Installation
 To install it in a JSPM project, run:
@@ -9,7 +9,7 @@ $ jspm install github:bubblyworld/zygo
 ```
 
 ## Example Usage
-For a more detailed description of the client API, see the [project wiki](github.com/Bubblyworld/zygo/wiki).
+For a more detailed description of the client API, see the [project wiki](https://www.github.com/Bubblyworld/zygo/wiki).  
 For a complete example, see [zygo-example](https://www.github.com/Bubblyworld/zygo-example).
 
 ``` javascript
