@@ -2,6 +2,10 @@
 
 Zygo is the beginnings of a slim dual client/server rendering framework built around [JSPM](https://www.github.com/jspm/jspm-cli) and [React](https://www.github.com/facebook/react). This repo contains the client side routing and rendering code, and can be used independently of [Zygo-Server](https://www.github.com/Bubblyworld/zygo-server).
 
+## Motivation
+
+
+
 ## Installation
 To install it in a JSPM project, run:
 ``` bash
