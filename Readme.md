@@ -23,9 +23,7 @@ Handlers load the data required by a route. Zygo stores the data on a per-reques
 
 ## Should I?
 
-There is a time and place for everything. If app responsiveness is absolutely critical, and data is less important, isomorphic rendering is perhaps not the solution.
-
-On the other hand, situations where the app is built around it's data could benefit from this approach.
+There is a time and place for everything. If app responsiveness is absolutely critical, and data is less important, isomorphic rendering is perhaps not the solution. On the other hand, situations where the app is built around it's data could benefit from this approach.
 
 The point of Zygo is to make this decision as easy as possible from an architectural point of view.
 
