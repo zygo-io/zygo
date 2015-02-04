@@ -6,9 +6,9 @@
   "author": "Guy Paterson-Jones",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Bubblyworld/Zygo/issues"
+    "url": "https://github.com/zygo-io/zygo/issues"
   },
-  "homepage": "https://github.com/Bubblyworld/Zygo",
+  "homepage": "https://github.com/zygo-io/zygo",
   "dependencies": {
     "chai": "npm:chai@^1.10.0",
     "css": "^0.1.0",
