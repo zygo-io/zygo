@@ -1,3 +1,5 @@
+/* */ 
+"format global";
 System.config({
   "paths": {
     "*": "*.js",
