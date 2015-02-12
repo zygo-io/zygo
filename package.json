@@ -10,10 +10,8 @@
   },
   "homepage": "https://github.com/zygo-io/zygo",
   "dependencies": {
-    "chai": "npm:chai@^1.10.0",
     "css": "^0.1.4",
     "jsx": "^0.1.1",
-    "mocha": "1.21.5",
     "react": "^0.12.2",
     "url-pattern": "npm:url-pattern@^0.6.0"
   }
