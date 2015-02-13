@@ -1,3 +1,4 @@
+import "./default-component.css!";
 import React from 'react';
 
 export default React.createClass({
@@ -11,9 +12,10 @@ export default React.createClass({
 
     return (
       <div>
-        {"Error: " + this.props.error.status}
-        <br />
-        {this.props.error.message}
+        <h2> {"Error: " + this.props.error.status} </h2>
+        <p>
+          {this.props.error.message}
+        </p>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 {
   "name": "zygo",
-  "version": "0.3.4",
+  "version": "0.3.6",
   "registry": "jspm",
   "main": "lib/zygo-client.js",
   "author": "Guy Paterson-Jones",
@@ -10,7 +10,7 @@
   },
   "homepage": "https://github.com/zygo-io/zygo",
   "dependencies": {
-    "css": "^0.1.4",
+    "css": "^0.1.5",
     "jsx": "^0.1.1",
     "react": "^0.12.2",
     "url-pattern": "npm:url-pattern@^0.6.0"
