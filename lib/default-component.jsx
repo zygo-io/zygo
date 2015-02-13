@@ -12,6 +12,7 @@ export default React.createClass({
     return (
       <div>
         {"Error: " + this.props.error.status}
+        <br />
         {this.props.error.message}
       </div>
     );
